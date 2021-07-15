@@ -1,0 +1,58 @@
+body {
+  margin: 0px;
+}
+
+.navbar {
+  border-bottom: 1px solid black;
+  justify-content: center;
+  align-items: center;
+}
+.table-artist tbody tr td th {
+  text-align: center;
+  align-items: center;
+  margin-top: 100px;
+}
+.table-album tbody tr td th {
+  margin-top: 100px;
+  padding: 0px;
+}
+.table-row {
+  height: 300px;
+}
+.album-button {
+  text-align: center;
+}
+.album-row {
+  height: 150px;
+}
+.albumCover-row {
+  height: 200px;
+  text-align: center;
+}
+.spaceRow {
+  height: 100px;
+}
+.spaceRowFooter {
+  height: 20px;
+}
+.coverImg {
+  width: 150px;
+  height: 150px;
+  border: solid black;
+  border-width: 1.5px;
+  padding-top: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-bottom: 20px;
+  margin: 10px;
+}
+.footerHrStyle hr {
+  border: none;
+  height: 2px;
+}
+.borderStyleFooter {
+  border-bottom: solid black;
+  border-width: 2px;
+}
+.album-hr-style {
+}
