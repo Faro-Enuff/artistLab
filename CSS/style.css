@@ -54,3 +54,7 @@ body {
   border-bottom: solid black;
   border-width: 2px;
 }
+.album-table-display {
+  display: none;
+  padding-bottom: 150px;
+}

@@ -1,12 +1,73 @@
-var cleanData = data.results;
-console.log(`cleanData`, cleanData);
+//SEARCH FUNCTION FOR ARTIST NAMES
+////////////
+////////
+////
+
+const createUrl = (artistName) => {
+  const person = (artistName) => {
+    let artist = {
+      q: artistName,
+      key: "ndqiGGFVIuiLYHmjQExU",
+      secret: "ADOGBtMyjsEJjQkyVcoNQTASKAuLfdCW",
+      per_page: 100,
+    };
+    return artist;
+  };
+  console.log(person(artistName));
+
+  let queryParams = "";
+
+  queryParams =
+    "?" +
+    Object.keys(person(artistName))
+      .map((key) => `${key}=${person(artistName)[key]}`)
+      .join("&");
+
+  console.log(queryParams);
+
+  const url = "https://api.discogs.com/database/search" + queryParams;
+
+  return url;
+};
+
+const example1 = createUrl("Eminem");
+console.log(example1);
+
+////
+////////
+////////////
+
+//FETCHING FUNCTION
+////////////
+////////
+////
+
+var requestOptions = {
+  method: "GET",
+  redirect: "follow",
+};
+
+fetch(createUrl("Rihanna"), requestOptions)
+  .then((response) => response.json())
+  .then((artists) => {
+    console.log(`artists`, artists);
+    let cleanData = artists.results;
+    console.log(`cleanData`, cleanData);
+    createMainContentTable(cleanData);
+    createAlbumContentTable(cleanData);
+  })
+  .catch((error) => console.log("error", error));
+
+////
+////////
+////////////
 
 //Function Artist Table + Album Image Row
 ////////////
 ////////
 ////
 
-let createMainContentTable = function () {
+let createMainContentTable = function (cleanData) {
   ///LINK TO TBODY
   var tbody = document.getElementById("mainContentTableBody");
 
@@ -114,7 +175,7 @@ let createMainContentTable = function () {
   const checkArray = [];
   for (let i = 0; i < cleanData.length; i++) {
     var check = cleanData[i].master_id;
-    if (!checkArray.includes(check) && checkArray.length <= 12) {
+    if (!checkArray.includes(check) && checkArray.length <= 4) {
       var imgCover = document.createElement("img");
       imgCover.src = cleanData[i].cover_image;
       imgCover.setAttribute("class", "coverImg");
@@ -127,57 +188,56 @@ let createMainContentTable = function () {
   console.log(releases()[0][0]);
 };
 
-//Console commands
-console.log(createMainContentTable());
-// console.log(createMainImageColumn());
+////
+////////
+////////////
 
 //Function Album Table
 ////////////
 ////////
 ////
-
-//BUILDING ONE SINGLE Array for Album Table
-const cleanDataAlbum = [];
-const cleanDataGenre = [];
-const cleanDataYear = [];
-const cleanDataFormat = [];
-const checkArrayId = [];
-for (let i = 0; i < cleanData.length; i++) {
-  var checkId = cleanData[i].master_id;
-  if (cleanData[i].type === "release" && !checkArrayId.includes(checkId)) {
-    cleanDataAlbum.push(cleanData[i].title);
-    cleanDataGenre.push(cleanData[i].genre[0]);
-    cleanDataYear.push(cleanData[i].year);
-    cleanDataFormat.push(cleanData[i].format);
-    checkArrayId.push(checkId);
-  }
-}
-
-//Create a String out of the Format Arrays
-const cleanDataFormatString = [];
-for (let i = 0; i < cleanDataFormat.length; i++) {
-  var stringFormat = "";
-  for (let j = 0; j < cleanDataFormat[i].length; j++) {
-    if (j < cleanDataFormat[i].length - 1) {
-      stringFormat = stringFormat + cleanDataFormat[i][j] + ", ";
+let createAlbumContentTable = function (cleanData) {
+  //BUILDING ONE SINGLE Array for Album Table
+  const cleanDataAlbum = [];
+  const cleanDataGenre = [];
+  const cleanDataYear = [];
+  const cleanDataFormat = [];
+  const checkArrayId = [];
+  for (let i = 0; i < cleanData.length; i++) {
+    var checkId = cleanData[i].master_id;
+    if (cleanData[i].type === "release" && !checkArrayId.includes(checkId)) {
+      cleanDataAlbum.push(cleanData[i].title);
+      cleanDataGenre.push(cleanData[i].genre[0]);
+      cleanDataYear.push(cleanData[i].year);
+      cleanDataFormat.push(cleanData[i].format);
+      checkArrayId.push(checkId);
     }
-    stringFormat = stringFormat + cleanDataFormat[i][j];
   }
-  cleanDataFormatString.push(stringFormat);
-}
 
-console.log(`cleanDataFormatString`, cleanDataFormatString);
+  //Create a String out of the Format Arrays
+  const cleanDataFormatString = [];
+  for (let i = 0; i < cleanDataFormat.length; i++) {
+    var stringFormat = "";
+    for (let j = 0; j < cleanDataFormat[i].length; j++) {
+      if (j < cleanDataFormat[i].length - 1) {
+        stringFormat = stringFormat + cleanDataFormat[i][j] + ", ";
+      }
+      stringFormat = stringFormat + cleanDataFormat[i][j];
+    }
+    cleanDataFormatString.push(stringFormat);
+  }
 
-// CLEAN DATA FOR TABLE
-const cleanDataAlbumTable = [
-  cleanDataAlbum,
-  cleanDataGenre,
-  cleanDataYear,
-  cleanDataFormatString,
-];
-console.log(`cleanDataAlbumTable`, cleanDataAlbumTable);
+  console.log(`cleanDataFormatString`, cleanDataFormatString);
 
-let createAlbumContentTable = function () {
+  // CLEAN DATA FOR TABLE
+  const cleanDataAlbumTable = [
+    cleanDataAlbum,
+    cleanDataGenre,
+    cleanDataYear,
+    cleanDataFormatString,
+  ];
+  console.log(`cleanDataAlbumTable`, cleanDataAlbumTable);
+
   arrTH = ["th1", "th2", "th3", "th4"];
 
   let i = 0;
@@ -193,22 +253,14 @@ let createAlbumContentTable = function () {
     i++;
   }
 };
-let albumTable = createAlbumContentTable();
+
+// let albumTable = createAlbumContentTable();
 
 let hideShow = function () {
   var x = document.getElementById("albumContentTable");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
+  if (x.style.display === "block") {
     x.style.display = "none";
+  } else {
+    x.style.display = "block";
   }
 };
-
-//Console commands
-////
-// console.log(cleanDataAlbumTable);
-
-// var tbody = document.getElementById("albumContentTable");
-// var row = document.createElement("tr");
-// var cell = document.createElement("td");
-// cell.innerHTML = cleanData[i];
