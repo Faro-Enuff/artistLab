@@ -56,7 +56,7 @@ let createMainContentTable = function () {
   /// SoundCloud
   var cell = document.createElement("td");
   var scIconImg = document.createElement("img");
-  // sIconImg.setAttribute("src", "../img/Soundcloud Logo Dark.png");
+  // sIconImg.setAttribute("src", "../img/SoundCloud Logo Dark.png");
   function setAttributes(el, attrs) {
     for (var key in attrs) {
       el.setAttribute(key, attrs[key]);
@@ -70,6 +70,7 @@ let createMainContentTable = function () {
     style: "table",
     style: "border-radius: 30px",
   });
+
   //FUNCTION FOR ARTIST - INSERT A PARAMETER LATER
   scIconImg.onclick = function () {
     window.open("https://soundcloud.com/eminemofficial", "_blank");
@@ -126,12 +127,6 @@ let createMainContentTable = function () {
   console.log(releases()[0][0]);
 };
 
-// var imgCover = document.createElement("img");
-
-// imgCover.src = cleanData[1].thumb;
-// var src = document.getElementById("leftCoverColumn");
-// src.appendChild(imgCover);
-
 //Console commands
 console.log(createMainContentTable());
 // console.log(createMainImageColumn());
@@ -186,21 +181,32 @@ let createAlbumContentTable = function () {
   arrTH = ["th1", "th2", "th3", "th4"];
 
   let i = 0;
-  while (i < cleanDataAlbumTable.length - 1) {
+  while (i < cleanDataAlbumTable[0].length) {
     var tbody = document.getElementById("albumContentTableBody");
     var row = document.createElement("tr");
     for (let j = 0; j < arrTH.length; j++) {
       var cell = document.createElement("td");
       cell.innerHTML = cleanDataAlbumTable[j][i];
-      cell.setAttribute("class", "align-middle");
       row.appendChild(cell);
     }
     tbody.appendChild(row);
     i++;
   }
 };
+let albumTable = createAlbumContentTable();
 
-console.log(createAlbumContentTable());
+let hideShow = function () {
+  var x = document.getElementById("albumContentTable");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+};
+
+//Console commands
+////
+// console.log(cleanDataAlbumTable);
 
 // var tbody = document.getElementById("albumContentTable");
 // var row = document.createElement("tr");
