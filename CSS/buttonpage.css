@@ -1,0 +1,11 @@
+.button-container {
+  width: 100%;
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+  height: 750px;
+  background-color: black;
+}
+.button-col {
+  margin-top: 350px;
+}

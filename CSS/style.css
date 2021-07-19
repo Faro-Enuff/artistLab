@@ -45,6 +45,7 @@ body {
   padding-right: 8px;
   padding-bottom: 20px;
   margin: 10px;
+  box-shadow: 2.5px 5px rgb(233, 233, 232), -0.2em 0 0.4em olive;
 }
 .footerHrStyle hr {
   border: none;
@@ -57,4 +58,9 @@ body {
 .album-table-display {
   display: none;
   padding-bottom: 150px;
+}
+h3,
+h5,
+a {
+  text-shadow: 2.5px 5px rgb(233, 233, 232), -0.05em 0 0.1em olive;
 }
