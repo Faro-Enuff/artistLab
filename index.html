@@ -11,6 +11,7 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="CSS/style.css" />
   </head>
   <body>
@@ -90,9 +91,6 @@
           </table>
         </div>
       </div>
-
-      <!-- Just for spacing -->
-      <div class="row spaceRow"></div>
       
       <!-- Album Image Row -->
       <div class="row albumCover-row align-items-center">
@@ -119,7 +117,7 @@
         <!-- Table Col -->
         <div class="col-12">
           <!-- Album Table -->
-          <table class="table table-striped table-hover album-table-display" id="albumContentTable" href="albumTable.main.js">
+          <table class="table table-striped table-hover test-table" id="albumContentTable">
             <thead class="">
               <th>Album</th>
               <th>Genre</th>
@@ -128,13 +126,12 @@
             </thead>
             <tbody id="albumContentTableBody"></tbody>
           </table>
+          <div class="pagenumbers test-tablebody" id="pagination"></div>
         </div>
       </div>
 
       <!-- Just for spacing -->
       <div class="row spaceRow"></div>
-
-
 
     </div>
 
@@ -155,6 +152,7 @@
       integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
       crossorigin="anonymous"
     ></script>
+
     <script src="JavaScript/main.js"></script>
   </body>
 </html>

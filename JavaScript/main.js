@@ -1,21 +1,7 @@
-//SEARCH FUNCTION FOR ARTIST NAMES
-////////////
-////////
-////
+// URL Use
 
-let artistNameText = '';
-function artistCatch() {
-  artistNameText = document.getElementById('artistCall').value;
-  alert(artistNameText);
-}
-
-document
-  .getElementById('searchButton')
-  .addEventListener('click', artistCatch());
-
-console.log(`artistNameSearch`, artistNameText);
-
-// artistNameSearch = 'Peter Fox';
+let params = new URL(document.location).searchParams;
+let artist = params.get('artist');
 
 const createUrl = (code, artistName) => {
   const person = artistName => {
@@ -42,7 +28,7 @@ const createUrl = (code, artistName) => {
 
   return url;
 };
-const testUrl = createUrl(artistNameText);
+const testUrl = createUrl(artist);
 console.log(`testUrl`, testUrl);
 
 // const example1 = createUrl('Eminem');
@@ -63,7 +49,7 @@ var requestOptions = {
 };
 
 fetch(
-  createUrl('https://api.discogs.com/database/search', artistNameText),
+  createUrl('https://api.discogs.com/database/search', artist),
   requestOptions
 )
   .then(response => response.json())
@@ -157,7 +143,7 @@ let createMainContentTable = function (cleanData) {
       //FUNCTION FOR ARTIST - INSERT A PARAMETER LATER
       scIconImg.onclick = function () {
         window.open(
-          createUrl('https://soundcloud.com/search', artistNameSearch),
+          createUrl('https://soundcloud.com/search', artist),
           '_blank'
         );
       };
@@ -173,10 +159,7 @@ let createMainContentTable = function (cleanData) {
         style: 'width: 45px; height: 45px; cursor: pointer',
       });
       spIconImg.onclick = function () {
-        window.open(
-          'https://open.spotify.com/search/' + artistNameSearch,
-          '_blank'
-        );
+        window.open('https://open.spotify.com/search/' + artist, '_blank');
       };
       cell.appendChild(spIconImg);
       row.appendChild(cell);
@@ -191,7 +174,7 @@ let createMainContentTable = function (cleanData) {
       });
       bpIconImg.onclick = function () {
         window.open(
-          createUrl('https://www.beatport.com/search', artistNameSearch),
+          createUrl('https://www.beatport.com/search', artist),
           '_blank'
         );
       };
@@ -273,27 +256,74 @@ let createAlbumContentTable = function (cleanData) {
 
   arrTH = ['th1', 'th2', 'th3', 'th4'];
 
-  let i = 0;
-  while (i < cleanDataAlbumTable[0].length) {
-    var tbody = document.getElementById('albumContentTableBody');
-    var row = document.createElement('tr');
-    for (let j = 0; j < arrTH.length; j++) {
-      var cell = document.createElement('td');
-      cell.innerHTML = cleanDataAlbumTable[j][i];
-      row.appendChild(cell);
+  const tableBody_element = document.getElementById('albumContentTableBody');
+  const pagination_element = document.getElementById('pagination');
+
+  let current_page = 1;
+  let rows = 5;
+
+  function displayList(data, wrapper, rows_per_page, page) {
+    wrapper.innerHTML = '';
+    page--;
+
+    let start = rows_per_page * page;
+    let end = start + rows_per_page;
+
+    for (let i = start; i < end + 1; i++) {
+      // let cell = paginatedItems[i];
+
+      let row_element = document.createElement('tr');
+      for (let j = 0; j < arrTH.length; j++) {
+        let cell_element = document.createElement('td');
+        cell_element.innerHTML = data[j][i];
+        row_element.appendChild(cell_element);
+      }
+      wrapper.appendChild(row_element);
     }
-    tbody.appendChild(row);
-    i++;
   }
+
+  function setUpPagination(data, wrapper, rows_per_page) {
+    wrapper.innerHTML = '';
+
+    let page_count = Math.ceil(data[0].length / rows_per_page);
+    for (let i = 1; i < page_count + 1; i++) {
+      let btn = paginationButton(i, data);
+      wrapper.appendChild(btn);
+    }
+  }
+
+  function paginationButton(page, data) {
+    let button = document.createElement('button');
+    button.innerHTML = page;
+
+    if (current_page === page) {
+      button.classList.add('active');
+    }
+    button.addEventListener('click', function () {
+      current_page = page;
+      displayList(cleanDataAlbumTable, tableBody_element, rows, current_page);
+
+      let current_btn = document.querySelector('.pagenumbers button.active');
+      current_btn.classList.remove('active');
+
+      button.classList.add('active');
+    });
+    return button;
+  }
+  displayList(cleanDataAlbumTable, tableBody_element, rows, current_page);
+  setUpPagination(cleanDataAlbumTable, pagination_element, rows);
 };
 
 // let albumTable = createAlbumContentTable();
 
 let hideShow = function () {
-  var x = document.getElementById('albumContentTable');
-  if (x.style.display === 'block') {
+  let x = document.getElementById('albumContentTable');
+  let y = document.querySelector('.pagenumbers');
+  if (x.style.display === 'block' && y.style.display === 'flex') {
     x.style.display = 'none';
+    y.style.display = 'none';
   } else {
     x.style.display = 'block';
+    y.style.display = 'flex';
   }
 };
