@@ -73,11 +73,13 @@ async function controller() {
   //Album Table
   createReleaseContentTable(getAlbumList);
   //SearchBar
-  filterBySearchBar(getAlbumList);
+  // filterBySearchBar(getAlbumList);
   //DropDown
   setDropDown(getAlbumList);
   //Event Listener
   setEventListeners(getAlbumList);
+  //Filter by Both
+  filterByBoth(getAlbumList);
 }
 controller();
 
@@ -330,33 +332,27 @@ const setDropDown = albumData => {
 const setEventListeners = albumData => {
   document.querySelector('#releaseDate').addEventListener('change', event => {
     console.log(`event`, event);
-    filterByDropDown(albumData);
+    filterByBoth(albumData);
+  });
+  document.querySelector('#searchBar').addEventListener('keyup', event => {
+    filterByBoth(albumData);
   });
 };
 
 //Searchbar
-const filterBySearchBar = albumData => {
-  const searchBar = document.querySelector('#searchBar');
-  console.log(searchBar);
-  searchBar.addEventListener('keyup', event => {
-    const searchString = event.target.value.toLowerCase();
-    const filteredCharacters = albumData.filter(character => {
-      return (
-        character.artist.toLowerCase().includes(searchString) ||
-        character.title.toLowerCase().includes(searchString)
-      );
-    });
-    createReleaseContentTable(filteredCharacters);
-  });
-};
-//Filter by dropdown
-const filterByDropDown = albumData => {
+const filterByBoth = albumData => {
+  const searchBar = document.querySelector('#searchBar').value;
   const dropDownValue = document.querySelector('#releaseDate').value;
   console.log(`dropDownValue`, dropDownValue);
-  let filteredReleases = albumData.filter(release => {
-    if (typeof release.year != 'undefined') {
-      return release.year == dropDownValue || dropDownValue === 'all';
-    }
+  console.log(searchBar);
+
+  const filteredValues = albumData.filter(value => {
+    return (
+      (value.artist.toLowerCase().includes(searchBar.toLowerCase()) ||
+        value.title.toLowerCase().includes(searchBar.toLowerCase())) &&
+      (value.year == dropDownValue || dropDownValue === 'all')
+    );
   });
-  createReleaseContentTable(filteredReleases);
+  console.log(`filteredValues`, filteredValues);
+  createReleaseContentTable(filteredValues);
 };
