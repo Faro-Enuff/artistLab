@@ -9,3 +9,19 @@ function artistCatch() {
   window.location = '../index.html?artist=' + artistNameText;
   alert(artistNameText);
 }
+
+////
+////////
+////////////
+
+//Event-Listener for Button-Click
+////////////
+////////
+////
+const input = document.getElementById('artistCall');
+input.addEventListener('keyup', e => {
+  console.log(e.key);
+  if (e.key === 'Enter') {
+    document.getElementById('searchButton').click();
+  }
+});

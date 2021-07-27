@@ -1,10 +1,92 @@
+/* Background */
+section {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(
+    -90deg,
+    black,
+    rgb(204, 202, 202),
+    white,
+    rgb(51, 50, 50),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    black,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    black,
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    black,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(37, 37, 37),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(48, 48, 48)
+  );
+  background-size: 400% 400%;
+  position: relative;
+  /* animation: change 120s ease-in-out infinite; */
+}
+
 .button-container {
   width: 100%;
   max-width: none;
   padding-left: 0;
   padding-right: 0;
   height: 750px;
-  background-color: black;
 }
 .button-col {
   margin-top: 350px;

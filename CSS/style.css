@@ -1,77 +1,247 @@
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* Background & General Style */
 body {
   margin: 0px;
 }
-
-.navbar {
-  border-bottom: 1px solid black;
-  justify-content: center;
-  align-items: center;
+section {
+  width: 100%;
+  background: linear-gradient(
+    -180deg,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(190, 190, 190),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(182, 181, 181),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(196, 196, 196),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(190, 190, 190),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(182, 181, 181),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(204, 202, 202),
+    white,
+    rgb(196, 196, 196),
+    white
+  );
+  background-size: 400% 400%;
+  position: relative;
+  animation: change 120s ease-in-out infinite;
 }
-.table-artist tbody tr td th {
-  text-align: center;
-  align-items: center;
-  margin-top: 100px;
+@keyframes change {
+  0% {
+    background-position: 0 25%;
+  }
+  50% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 0 100%;
+  }
 }
-.table-album tbody tr td th {
-  margin-top: 100px;
-  padding: 0px;
-}
-.table-row {
-  height: 300px;
-}
-.album-button {
-  text-align: center;
-}
-.album-row {
-  height: 150px;
-}
-.albumCover-row {
-  height: 200px;
-  text-align: center;
-}
-.spaceRow {
-  height: 100px;
-}
-.spaceRowFooter {
-  height: 20px;
-}
-.coverImg {
-  width: 150px;
-  height: 150px;
-  border: solid black;
-  border-width: 1.5px;
-  padding-top: 8px;
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-bottom: 20px;
-  margin: 10px;
-  box-shadow: 2.5px 5px rgb(233, 233, 232), -0.2em 0 0.4em olive;
-}
-.footerHrStyle hr {
-  border: none;
+hr {
+  border-color: solid black;
+  border-width: 2px;
   height: 2px;
 }
+
 .borderStyleFooter {
   border-bottom: solid black;
   border-width: 2px;
 }
-.album-table-display {
-  display: none;
-  padding-bottom: 150px;
-}
-h3,
+*/ h3,
 h5,
 a {
-  text-shadow: 2.5px 5px rgb(233, 233, 232), -0.05em 0 0.1em olive;
+  text-shadow: 2.5px 5px rgba(0, 180, 165, 0.349),
+    -0.05em 0 0.1em rgba(0, 180, 165, 0.349);
+}
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* Navbar Style */
+.navbar {
+  border-bottom: 2px solid black;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0.51px 0.5px rgb(235, 235, 235);
+}
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* Artist Image */
+.artist-image-row {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.artist-image-column {
+  display: flex;
+}
+.card {
+  box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.15),
+    -0.2em 0 0.4em rgba(0, 180, 165, 0.349);
+  background-color: white;
+  border-radius: 20px 20px 20px 20px;
+  width: 200px;
+  height: 200px;
 }
 
+.artist-image-div {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: white;
+}
+.artist-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 150px 150px 150px 150px;
+  object-fit: contain;
+}
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* Cover Image Row */
+.coverImg {
+  display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 900px;
+  height: 150px;
+  background-color: white;
+  opacity: 0.9;
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15),
+    -0.2em 0 0.4em rgba(0, 180, 165, 0.349);
+}
+.coverImg img {
+  width: 100px;
+  height: 100px;
+  margin: 0px auto 0px auto;
+  border-radius: 20px 20px 20px 20px;
+  border-image: 2px solid black;
+}
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* Artist Table */
+.table-col {
+  display: flex;
+  width: 100%;
+  padding: 0;
+}
+.table-artist {
+  width: 100%;
+  margin-top: 50px;
+  border-radius: 20px 20px 20px 20px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15),
+    -0.2em 0 0.4em rgba(0, 180, 165, 0.349);
+  background-color: white;
+  opacity: 0.8;
+}
+.table-artist thead tr th {
+  margin-top: 100px;
+  background-color: rgb(65, 65, 65);
+  opacity: 0.9;
+  color: white;
+}
+.table-artist tbody tr:last-of-type {
+  overflow: hidden;
+}
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* Hide and Show Button  */
+.album-button {
+  text-align: center;
+}
+.album-button button {
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15),
+    -0.2em 0 0.4em rgba(0, 180, 165, 0.349);
+}
+.album-row {
+  height: 50px;
+}
+.albumCover-col {
+  display: flex;
+  padding: 0;
+}
+.albumCover-row {
+  margin-top: 50px;
+}
+.spaceRowFooter {
+  height: 20px;
+}
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* Album-Release Table Incl. Pagination*/
+.album-table {
+  visibility: hidden;
+  border-radius: 20px 20px 20px 20px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15),
+    -0.2em 0 0.4em rgba(0, 180, 165, 0.349);
+  background-color: white;
+  opacity: 0.8;
+}
+
+.album-table thead tr th {
+  background-color: rgb(65, 65, 65);
+  color: white;
+}
+.album-table tbody tr td {
+  font-size: 14px;
+  overflow: hidden;
+}
 .pagenumbers {
-  display: none;
+  visibility: hidden;
+  display: flex;
   flex: wrap;
   justify-content: center;
   align-items: center;
-  width: auto;
-  margin-bottom: 150px;
+  margin-bottom: 250px;
 }
 .pagenumbers button {
   width: 45px;
@@ -91,9 +261,56 @@ a {
   color: white;
   font-size: 15px;
   text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15),
+    -0.2em 0 0.4em rgba(0, 180, 165, 0.349);
 }
 .pagenumbers button:hover {
   background-color: rgb(233, 233, 232);
   color: black;
+  font-weight: bold;
+}
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* DropDown */
+.dropdown-menu {
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 2px;
+  padding-left: 15px;
+  border-radius: 20px 20px 20px 20px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15),
+    -0.2em 0 0.4em rgba(0, 180, 165, 0.349);
+  background-color: rgb(65, 65, 65);
+  color: white;
+  opacity: 0.8;
+}
+.dropdown-menu option {
+  border-radius: 20px 20px 20px 20px;
+}
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* Search-Bar */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.search-bar input {
+  padding-left: 20px;
+  background-color: rgb(65, 65, 65);
+  color: white;
+  opacity: 0.8;
+  border-radius: 20px 20px 20px 20px;
+  border-color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15),
+    -0.2em 0 0.4em rgba(0, 180, 165, 0.349);
+  height: 40px;
+  font-weight: bold;
 }
