@@ -97,11 +97,11 @@ const artistId = data => {
 
 //Artist Image
 const artistMainImage = artist => {
-  const imagePara = document.getElementById('artistImage');
+  const imageCard = document.getElementById('imageCard');
   const artistImage = document.createElement('img');
   artistImage.src = artist[0].cover_image;
-  artistImage.setAttribute('class', 'img-rounded artist-image border-dark');
-  imagePara.appendChild(artistImage);
+  artistImage.setAttribute('class', 'artist-image');
+  imageCard.appendChild(artistImage);
 };
 
 //Function Artist Table + Album Image Row
@@ -111,11 +111,11 @@ function createMainContentTable(cleanDataArtist, artist) {
   //Build Body & Row
   const heading = [
     'Artist',
-    'Real Name',
+    'Name',
+    'Profile',
     'SoundCloud',
     'Spotify',
     'Beatport',
-    'Profile',
   ];
   const thead = document.getElementById('mainContentTableHead');
   const th_row = document.createElement('tr');
@@ -139,7 +139,7 @@ function createMainContentTable(cleanDataArtist, artist) {
     } else if (i === 1) {
       cell.innerHTML = cleanDataArtist.realname;
       row.appendChild(cell);
-    } else if (i === 2) {
+    } else if (i === 3) {
       /// SoundCloud
       const scIconImg = document.createElement('img');
       // sIconImg.setAttribute("src", "../img/SoundCloud Logo Dark.png");
@@ -163,7 +163,7 @@ function createMainContentTable(cleanDataArtist, artist) {
       };
       cell.appendChild(scIconImg);
       row.appendChild(cell);
-    } else if (i === 3) {
+    } else if (i === 4) {
       //Spotify IMG
       const spIconImg = document.createElement('img');
       setAttributes(spIconImg, {
@@ -176,7 +176,7 @@ function createMainContentTable(cleanDataArtist, artist) {
       };
       cell.appendChild(spIconImg);
       row.appendChild(cell);
-    } else if (i === 4) {
+    } else if (i === 5) {
       //Beatport IMG
       const bpIconImg = document.createElement('img');
       setAttributes(bpIconImg, {
@@ -192,7 +192,7 @@ function createMainContentTable(cleanDataArtist, artist) {
       };
       cell.appendChild(bpIconImg);
       row.appendChild(cell);
-    } else if (i === 5) {
+    } else if (i === 2) {
       cell.innerHTML = cleanDataArtist.profile;
       row.appendChild(cell);
     }
@@ -310,16 +310,33 @@ function createReleaseContentTable(dataAlbum) {
   setUpPagination(dataAlbum, pagination_element, rows);
 }
 
-//Searchbar
-//   const tableDiv = document.getElementById('albumContentTable');
-//   const searchBar = document.createElement('input');
-//   searchBar.setAttribute('type', 'text');
-//   searchBar.setAttribute('id', 'search');
-//   searchBar.setAttribute('placeholder', 'Search...');
-//   tableDiv.appendChild(searchBar);
+//Dropdown Menu
 
+const setDropDown = albumData => {
+  const dropdown = document.getElementById('releaseDate');
+  const releaseYears = albumData.map(e => e.year);
+  const unique = [...new Set(releaseYears)];
+  unique.forEach(years => {
+    if (typeof years != 'undefined') {
+      let option = document.createElement('option');
+      option.innerHTML = years;
+      option.value = years;
+      dropdown.appendChild(option);
+    }
+  });
+};
+
+//Filter event listener
+const setEventListeners = albumData => {
+  document.querySelector('#releaseDate').addEventListener('change', event => {
+    console.log(`event`, event);
+    filterByDropDown(albumData);
+  });
+};
+
+//Searchbar
 const filterBySearchBar = albumData => {
-  const searchBar = document.getElementById('searchBar');
+  const searchBar = document.querySelector('#searchBar');
   console.log(searchBar);
   searchBar.addEventListener('keyup', event => {
     const searchString = event.target.value.toLowerCase();
@@ -332,37 +349,13 @@ const filterBySearchBar = albumData => {
     createReleaseContentTable(filteredCharacters);
   });
 };
-
-//Dropdown Menu
-
-const setDropDown = albumData => {
-  const dropdown = document.getElementById('releaseDate');
-  const releaseYears = albumData.map(e => e.year);
-  const unique = [...new Set(releaseYears)];
-  unique.forEach(years => {
-    let option = document.createElement('option');
-    option.innerHTML = years;
-    option.value = years;
-    dropdown.appendChild(option);
-  });
-};
-
-//Filter event listener
-const setEventListeners = albumData => {
-  document.querySelector('#releaseDate').addEventListener('change', event => {
-    console.log(`event`, event);
-    filterByDropDown(albumData);
-  });
-};
-
 //Filter by dropdown
 const filterByDropDown = albumData => {
   const dropDownValue = document.querySelector('#releaseDate').value;
   console.log(`dropDownValue`, dropDownValue);
   let filteredReleases = albumData.filter(release => {
     if (typeof release.year != 'undefined') {
-      console.log(`typeof`, release);
-      return release.year === dropDownValue || dropDownValue === 'all';
+      return release.year == dropDownValue || dropDownValue === 'all';
     }
   });
   createReleaseContentTable(filteredReleases);

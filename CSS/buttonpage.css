@@ -80,14 +80,26 @@ section {
   position: relative;
   /* animation: change 120s ease-in-out infinite; */
 }
-
-.button-container {
-  width: 100%;
-  max-width: none;
-  padding-left: 0;
-  padding-right: 0;
-  height: 750px;
+h1 {
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.button-col {
-  margin-top: 350px;
+h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.navbar {
+  padding-left: 45%;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20%;
+  text-shadow: 20px 20px 40px rgba(0, 0, 0, 0.15),
+    -5em 0 2.9em rgba(0, 180, 165, 0.349);
 }

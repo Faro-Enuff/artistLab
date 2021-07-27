@@ -45,9 +45,9 @@
             id="navbarM"
           >
             <div class="navbar-nav">
-              <a class="nav-link" href="HTML/button.html">SEARCH</a>
+              <a class="nav-link" href="HTML/button.html"><b>Search</b></a>
               <a class="nav-link active" aria-current="page" href="index.html"
-                >Laboratory</a
+                ><b>Laboratory</b></a
               >
             </div>
           </div>
@@ -86,9 +86,8 @@
               justify-content-center
               align-items-center
             "
-          >
-            <div class="card-body artist-image-div" id="artistImage"></div>
-          </div>
+            id="imageCard"
+          ></div>
           <div class="col"></div>
           <div class="col-7 albumCover-col justify-content-center">
             <p id="albumCoverColumn" class="coverImg"></p>
@@ -112,7 +111,7 @@
           <!-- Button Col -->
           <div class="col-8 album-button">
             <button class="btn btn-dark" onclick="hideShow()">
-              Show all Albums
+              Show Albums
             </button>
           </div>
         </div>
@@ -135,7 +134,7 @@
                 type="text"
                 name="searchBar"
                 id="searchBar"
-                placeholder="Or, search for title..."
+                placeholder="Search for title..."
               />
             </div>
             <select name="yor" id="releaseDate" class="dropdown-menu">

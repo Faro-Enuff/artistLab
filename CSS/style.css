@@ -7,6 +7,7 @@ body {
 }
 section {
   width: 100%;
+  height: 100vh;
   background: linear-gradient(
     -180deg,
     rgb(204, 202, 202),
@@ -82,17 +83,15 @@ hr {
   border-width: 2px;
   height: 2px;
 }
+.container-fluid a {
+  padding-left: 15px;
+}
 
 .borderStyleFooter {
   border-bottom: solid black;
   border-width: 2px;
 }
-*/ h3,
-h5,
-a {
-  text-shadow: 2.5px 5px rgba(0, 180, 165, 0.349),
-    -0.05em 0 0.1em rgba(0, 180, 165, 0.349);
-}
+
 /* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
 /* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
 /* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
@@ -120,22 +119,17 @@ a {
     -0.2em 0 0.4em rgba(0, 180, 165, 0.349);
   background-color: white;
   border-radius: 20px 20px 20px 20px;
-  width: 200px;
-  height: 200px;
-}
-
-.artist-image-div {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: white;
+  width: 190px;
+  padding: 1.5rem;
 }
 .artist-image {
   width: 100%;
-  height: 100%;
   border-radius: 150px 150px 150px 150px;
-  object-fit: contain;
+  object-fit: scale-down;
+  box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.15),
+    -0.3em 0 0.9em rgba(0, 180, 165, 0.349);
 }
+
 /* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
 /* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
 /* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
@@ -159,6 +153,8 @@ a {
   margin: 0px auto 0px auto;
   border-radius: 20px 20px 20px 20px;
   border-image: 2px solid black;
+  box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.15),
+    -0.3em 0 0.5em rgba(0, 180, 165, 0.349);
 }
 /* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
 /* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
@@ -184,6 +180,7 @@ a {
   background-color: rgb(65, 65, 65);
   opacity: 0.9;
   color: white;
+  padding-right: 60px;
 }
 .table-artist tbody tr:last-of-type {
   overflow: hidden;
@@ -289,8 +286,8 @@ a {
   color: white;
   opacity: 0.8;
 }
-.dropdown-menu option {
-  border-radius: 20px 20px 20px 20px;
+.dropdown-menu:hover {
+  cursor: pointer;
 }
 /* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
 /* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
@@ -300,17 +297,21 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 50px;
 }
 .search-bar input {
   padding-left: 20px;
-  background-color: rgb(65, 65, 65);
-  color: white;
+  background-color: white;
+  color: black;
   opacity: 0.8;
   border-radius: 20px 20px 20px 20px;
+  border: black solid;
   border-color: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.15),
-    -0.2em 0 0.4em rgba(0, 180, 165, 0.349);
+    -0.4em 0 0.9em rgba(0, 180, 165, 0.349);
   height: 40px;
   font-weight: bold;
+}
+.search-bar input:hover {
+  border-color: rgba(0, 180, 165, 0.349);
 }
