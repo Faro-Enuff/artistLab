@@ -4,10 +4,7 @@
 /* Background & General Style */
 body {
   margin: 0px;
-}
-section {
-  width: 100%;
-  height: 100%;
+  min-height: 100vh;
   background: linear-gradient(
     -180deg,
     rgb(204, 202, 202),
@@ -103,6 +100,15 @@ hr {
   background-color: white;
   box-shadow: 0.51px 0.5px rgb(235, 235, 235);
 }
+.navbar-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 200px;
+}
+.navbar-brand {
+  margin-top: 30px;
+}
 /* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
 /* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
 /* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
@@ -167,6 +173,7 @@ hr {
 }
 .table-artist {
   width: 100%;
+  font-size: 16px;
   margin-top: 50px;
   border-radius: 20px 20px 20px 20px;
   overflow: hidden;
@@ -185,12 +192,16 @@ hr {
 .table-artist tbody tr:last-of-type {
   overflow: hidden;
 }
+.table-artist tbody tr td:first-child {
+  font-weight: bold;
+}
 /* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
 /* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
 /* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
 /* Hide and Show Button  */
 .album-button {
   text-align: center;
+  margin-top: 20px;
 }
 .album-button button {
   border-radius: 20px 20px 20px 20px;
@@ -205,7 +216,7 @@ hr {
   padding: 0;
 }
 .albumCover-row {
-  margin-top: 50px;
+  margin-top: 80px;
 }
 .spaceRowFooter {
   height: 20px;
@@ -276,10 +287,11 @@ hr {
   justify-content: center;
   align-items: center;
   position: relative;
-  left: 2px;
+  left: 565px;
   padding-left: 15px;
   border-radius: 20px 20px 20px 20px;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.15),
     -0.2em 0 0.4em rgba(0, 180, 165, 0.349);
   background-color: rgb(65, 65, 65);
@@ -298,6 +310,7 @@ hr {
   justify-content: center;
   align-items: center;
   margin-top: 50px;
+  visibility: hidden;
 }
 .search-bar input {
   padding-left: 20px;
@@ -310,8 +323,49 @@ hr {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.15),
     -0.4em 0 0.9em rgba(0, 180, 165, 0.349);
   height: 40px;
+  width: 300px;
   font-weight: bold;
 }
 .search-bar input:hover {
   border-color: rgba(0, 180, 165, 0.349);
+}
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
+/* Loader */
+.loader {
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader img {
+  width: 100px;
+  transform-origin: bottom-center;
+  animation: rotate 5s linear infinite;
+}
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes fadeOut {
+  75% {
+    opacity: 0.7;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.loader.hidden {
+  animation: fadeOut 3s;
+  animation-fill-mode: forwards;
 }

@@ -1,3 +1,12 @@
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+//Loader
+window.addEventListener('load', () => {
+  const loader = document.querySelector('.loader');
+  loader.className += ' hidden';
+});
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 // Hide & Show function for the Albumtable
 let hideShow = function () {
   let table = document.querySelector('.album-table');
@@ -9,12 +18,14 @@ let hideShow = function () {
     pagination.style.visibility = 'hidden';
     table.style.visibility = 'hidden';
     dropdown.style.visibility = 'hidden';
+    searchBar.style.visibility = 'hidden';
     artistTable.style.opacity = 1;
     coverRow.style.opacity = 1;
   } else {
     pagination.style.visibility = 'visible';
     table.style.visibility = 'visible';
     dropdown.style.visibility = 'visible';
+    searchBar.style.visibility = 'visible';
     artistTable.style.opacity = 0.5;
     coverRow.style.opacity = 0.5;
   }

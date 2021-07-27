@@ -1,5 +1,5 @@
 /* Background */
-section {
+body {
   width: 100%;
   height: 100vh;
   background: linear-gradient(
@@ -93,7 +93,7 @@ h2 {
   margin-bottom: 50px;
 }
 .navbar {
-  padding-left: 45%;
+  padding-right: 45%;
 }
 .button-container {
   display: flex;
