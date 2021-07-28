@@ -65,7 +65,7 @@ async function controller() {
   // console.log(`getImageList`, getImageList);
   //Data Album Fetch
   const getAlbumList = await getAlbumDataAsync(artistID);
-  console.log(`getAlbumList`, getAlbumList);
+  // console.log(`getAlbumList`, getAlbumList);
 
   //Artist Image
   artistMainImage(artistIDTable);
@@ -212,16 +212,16 @@ function createMainContentTable(cleanDataArtist, artist) {
 
 const createImageRow = dataImage => {
   const imageReleases = dataImage.filter(data => data.type === 'release');
-  console.log(`imageReleases`, imageReleases);
+  // console.log(`imageReleases`, imageReleases);
   const sortedImageReleases = imageReleases.sort((a, b) => b.year - a.year);
-  console.log(`sortedImageReleases`, sortedImageReleases);
+  // console.log(`sortedImageReleases`, sortedImageReleases);
   const cleanedImageReleases = [
     ...sortedImageReleases
       .reduce((map, obj) => map.set(obj.master_id, obj), new Map())
       .values(),
   ];
 
-  console.log(`cleanedImageReleases`, cleanedImageReleases);
+  // console.log(`cleanedImageReleases`, cleanedImageReleases);
 
   cleanedImageReleases.forEach((images, i) => {
     if (i < 5) {
@@ -358,8 +358,8 @@ const setEventListeners = albumData => {
 const filterByBoth = albumData => {
   const searchBar = document.querySelector('#searchBar').value;
   const dropDownValue = document.querySelector('#releaseDate').value;
-  console.log(`dropDownValue`, dropDownValue);
-  console.log(searchBar);
+  // console.log(`dropDownValue`, dropDownValue);
+  // console.log(searchBar);
 
   const filteredValues = albumData.filter(value => {
     return (
@@ -368,6 +368,6 @@ const filterByBoth = albumData => {
       (value.year == dropDownValue || dropDownValue === 'all')
     );
   });
-  console.log(`filteredValues`, filteredValues);
+  // console.log(`filteredValues`, filteredValues);
   createReleaseContentTable(filteredValues);
 };
