@@ -287,14 +287,19 @@ hr {
 /* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
 /* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
 /* DropDown */
+.filter-drop-down {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .dropdown-menu {
   visibility: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  left: 565px;
-  padding-left: 15px;
+  /* left: 565px; */
+  padding-left: 30px;
   border-radius: 20px 20px 20px 20px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -319,7 +324,7 @@ hr {
   visibility: hidden;
 }
 .search-bar input {
-  padding-left: 20px;
+  padding-left: 40px;
   background-color: white;
   color: black;
   opacity: 0.8;
