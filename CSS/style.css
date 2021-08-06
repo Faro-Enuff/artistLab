@@ -353,6 +353,7 @@ hr {
 }
 .loader img {
   width: 100px;
+  opacity: 0.6;
   transform-origin: bottom-center;
   animation: rotate 5s linear infinite;
 }
