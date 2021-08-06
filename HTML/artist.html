@@ -18,16 +18,34 @@
     <link rel="stylesheet" href="../CSS/style.css" />
   </head>
   <body>
+    <div class="loader">
+      <img src="../img/loader.jpg" alt="Loading..." />
+    </div>
 
-      <div class='loader'>
-        <img src="../img/loader.jpg" alt="Loading...">
-      </div>
-
-      <nav class="navbar navbar-expand-sm navbar-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <!-- PRODUCT NAME -->
-            <h5>a r t i s t L A B . . .
+    <nav class="navbar navbar-expand-sm navbar-light">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarM"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-center"
+          id="navbarM"
+        >
+          <div class="navbar-nav">
+            <a class="nav-link" href="../index.html"><b>Search</b></a>
+            <a class="nav-link active" aria-current="page" href="artist.html"
+              ><b>Laboratory</b></a
+            >
+          </div>
+        </div>
+        <a class="navbar-brand" href="#">
+          <!-- PRODUCT NAME -->
+          <h5>
+            a r t i s t L A B . . .
             <!-- IMG ADD !!! -->
             <img
               src="../img/loader.jpg"
@@ -36,129 +54,109 @@
               height="30"
               class="d-inline-block align-text-top"
             />
-          </a>
-        </h5>
-          <button
-            class="navbar-toggler"
-            data-toggle="collapse"
-            data-target="#navbarM"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div
-            class="collapse navbar-collapse justify-content-center"
-            id="navbarM"
-          >
-            <div class="navbar-nav">
-              <a class="nav-link" href="../index.html"><b>Search</b></a>
-              <a class="nav-link active" aria-current="page" href="artist.html"
-                ><b>Laboratory</b></a
-              >
-            </div>
+          </h5>
+        </a>
+      </div>
+    </nav>
+
+    <footer class="page-footer font-small black pt-4 fixed-bottom">
+      <div class="container fluid text-center text-md-left">
+        <div class="row align-items-center">
+          <div class="col-4 footerHrStyle justify-content-center">
+            <hr />
+          </div>
+          <div class="col-4 justify-content-center borderStyleFooter">
+            <h3>a r t i s t</h3>
+            <h5>L A B</h5>
+          </div>
+          <div class="col-4 footerHrStyle justify-content-center">
+            <hr />
           </div>
         </div>
-      </nav>
+        <!-- Just for spacing -->
+        <div class="row spaceRowFooter"></div>
+      </div>
+    </footer>
 
-      <footer class="page-footer font-small black pt-4 fixed-bottom">
-        <div class="container fluid text-center text-md-left">
-          <div class="row align-items-center">
-            <div class="col-4 footerHrStyle justify-content-center">
-              <hr />
-            </div>
-            <div class="col-4 justify-content-center borderStyleFooter">
-              <h3>a r t i s t</h3>
-              <h5>L A B</h5>
-            </div>
-            <div class="col-4 footerHrStyle justify-content-center">
-              <hr />
-            </div>
-          </div>
-          <!-- Just for spacing -->
-          <div class="row spaceRowFooter"></div>
-        </div>
-      </footer>
-
-      <div class="container my-container">
-        <!-- Album Image Row -->
-        <div class="row albumCover-row align-items-center">
-          <!-- Album Image Col -->
-          <div
-            class="
-              col-4
-              card
-              text-white
-              mb-3
-              justify-content-center
-              align-items-center
-            "
-            id="imageCard"
-          ></div>
-          <div class="col"></div>
-          <div class="col-7 albumCover-col justify-content-center">
-            <p id="albumCoverColumn" class="coverImg"></p>
-          </div>
-        </div>
-
-        <!-- Table Row -->
-        <div class="row table-row align-items-center">
-          <!-- Table Col -->
-          <div class="col-12 table-col justify-content-center">
-            <!-- Artist Table -->
-            <table class="table table-artist table-hover" id="mainContentTable">
-              <thead id="mainContentTableHead"></thead>
-              <tbody class="allign-middle" id="mainContentTableBody"></tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- SHOW-Button Row -->
-        <div class="row album-row justify-content-center align-items-center">
-          <!-- Button Col -->
-          <div class="col-8 album-button">
-            <button class="btn btn-dark" onclick="hideShow()">
-              Show Albums
-            </button>
-          </div>
-        </div>
-
-        <!-- Table Row -->
+    <div class="container my-container">
+      <!-- Album Image Row -->
+      <div class="row albumCover-row align-items-center">
+        <!-- Album Image Col -->
         <div
           class="
-            row
-            table-row
-            align-items-center
+            col-4
+            card
+            text-white
+            mb-3
             justify-content-center
-            table-responsive-xl
+            align-items-center
           "
-        >
-          <!-- Table Col -->
-          <div class="col-12">
-            <!-- Album Table -->
-            <div id="searchWrapper" class="search-bar">
-              <input
-                type="text"
-                name="searchBar"
-                id="searchBar"
-                placeholder="Search for Title, or Artist..."
-              />
-            </div>
-            <select name="yor" id="releaseDate" class="dropdown-menu">
-              <option value="all">Filter Years</option>
-            </select>
-            <table
-              class="table table-striped table-hover album-table"
-              id="albumContentTable"
-            >
-              <thead id="albumContentTableHead"></thead>
-              <tbody id="albumContentTableBody"></tbody>
-            </table>
-            <div class="pagenumbers test-tablebody" id="pagination"></div>
-          </div>
+          id="imageCard"
+        ></div>
+        <div class="col"></div>
+        <div class="col-7 albumCover-col justify-content-center">
+          <p id="albumCoverColumn" class="coverImg"></p>
         </div>
-
-        <!-- Just for spacing -->
-        <div class="row spaceRow"></div>
       </div>
+
+      <!-- Table Row -->
+      <div class="row table-row align-items-center">
+        <!-- Table Col -->
+        <div class="col-12 table-col justify-content-center">
+          <!-- Artist Table -->
+          <table class="table table-artist table-hover" id="mainContentTable">
+            <thead id="mainContentTableHead"></thead>
+            <tbody class="allign-middle" id="mainContentTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SHOW-Button Row -->
+      <div class="row album-row justify-content-center align-items-center">
+        <!-- Button Col -->
+        <div class="col-8 album-button">
+          <button class="btn btn-dark" onclick="hideShow()">Show Albums</button>
+        </div>
+      </div>
+
+      <!-- Table Row -->
+      <div
+        class="
+          row
+          table-row
+          align-items-center
+          justify-content-center
+          table-responsive-xl
+        "
+      >
+        <!-- Table Col -->
+        <div class="col-12">
+          <!-- Album Table -->
+          <div id="searchWrapper" class="search-bar">
+            <input
+              type="text"
+              name="searchBar"
+              id="searchBar"
+              placeholder="Search for Title, or Artist..."
+            />
+          </div>
+          <select name="yor" id="releaseDate" class="dropdown-menu">
+            <option value="all">Filter Years</option>
+          </select>
+          <table
+            class="table table-striped table-hover album-table"
+            id="albumContentTable"
+          >
+            <thead id="albumContentTableHead"></thead>
+            <tbody id="albumContentTableBody"></tbody>
+          </table>
+          <div class="pagenumbers test-tablebody" id="pagination"></div>
+        </div>
+      </div>
+
+      <!-- Just for spacing -->
+      <div class="row spaceRow"></div>
+    </div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

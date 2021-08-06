@@ -91,8 +91,26 @@ h2 {
   align-items: center;
   margin-bottom: 50px;
 }
-.navbar {
-  padding-right: 45%;
+.navbar .navbar-brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  margin-right: 20px;
+  margin-left: auto;
+  text-align: center;
+}
+h5 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container-fluid a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 .button-container {
   display: flex;

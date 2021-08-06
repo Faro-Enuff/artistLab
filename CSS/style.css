@@ -106,10 +106,10 @@ hr {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-right: 200px;
+  padding-left: 150px;
 }
 .navbar-brand {
-  margin-top: 30px;
+  /* margin-top: 30px; */
 }
 /* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
 /* // */ /* // */ /* // */ /* // */ /* // */ /* // */ /* // */
