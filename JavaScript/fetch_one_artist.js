@@ -154,7 +154,7 @@ function createMainContentTable(cleanDataArtist, artist) {
         }
       }
       setAttributes(scIconImg, {
-        src: 'img/Soundcloud40.png',
+        src: '../img/Soundcloud40.png',
         scrolling: 'no',
         style:
           'width: 45px; height: 45px; border-radius: 30px; table;cursor: pointer ',
@@ -172,7 +172,7 @@ function createMainContentTable(cleanDataArtist, artist) {
       //Spotify IMG
       const spIconImg = document.createElement('img');
       setAttributes(spIconImg, {
-        src: 'img/SpotifyIconBlack.png',
+        src: '../img/SpotifyIconBlack.png',
         scrolling: 'no',
         style: 'width: 45px; height: 45px; cursor: pointer',
       });
@@ -185,7 +185,7 @@ function createMainContentTable(cleanDataArtist, artist) {
       //Beatport IMG
       const bpIconImg = document.createElement('img');
       setAttributes(bpIconImg, {
-        src: 'img/Beatport.png',
+        src: '../img/Beatport.png',
         scrolling: 'no',
         style: 'width: 45px; height:45px; cursor: pointer; border-radius: 30px',
       });

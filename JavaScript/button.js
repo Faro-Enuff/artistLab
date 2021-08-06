@@ -6,7 +6,7 @@
 let artistNameText = '';
 function artistCatch() {
   artistNameText = document.getElementById('artistCall').value;
-  window.location = '../index.html?artist=' + artistNameText;
+  window.location = './HTML/artist.html?artist=' + artistNameText;
 }
 
 ////
